@@ -1,5 +1,5 @@
 # irsa-fluid-eks
-The objective of this repo is to test how to install fluid on eks via irsa
+The objective of this repo is to test how to install fluid on eks with authentication by irsa rather than secret token.
 
 ## 1.amazon eks cluster provision
 
