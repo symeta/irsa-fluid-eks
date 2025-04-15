@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: data-reader-pod
+spec:
+  containers:
+    - name: data-reader
+      image: busybox
+      command: ["/bin/sh"]
+      args:
+        - "-c"
+        - "while true; do ls -l /data; cat /data/*; sleep 30; done"
+      volumeMounts:
+        - name: s3-data
+          mountPath: /data
+  volumes:
+    - name: s3-data
+      persistentVolumeClaim:
+        claimName: s3-dataset

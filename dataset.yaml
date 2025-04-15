@@ -1,0 +1,14 @@
+apiVersion: data.fluid.io/v1alpha1
+kind: Dataset
+metadata:
+  name: s3-dataset
+spec:
+  mounts:
+    - mountPoint: s3://ab-23-data/fluid/
+      name: s3-mount      
+      options:
+        alluxio.underfs.s3.region: us-west-2
+        alluxio.underfs.s3.endpoint: s3.us-west-2.amazonaws.com
+  accessModes:
+    - ReadWriteMany
+  placement: "Shared"
